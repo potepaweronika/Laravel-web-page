@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +26,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::controller(GalleryController::class)->group( function (){
+    route::get('/mainGallery', 'index')->name('mainGallery');
+});
+
+
 //Route::get('/comments', 'App\Http\Controllers\CommentsController@index');
 
 Route::controller(CommentsController::class)->group(function () {
@@ -33,6 +40,11 @@ Route::controller(CommentsController::class)->group(function () {
     Route::get('/delete/{id}', 'destroy')->name('delete');
     Route::get('/edit/{id}', 'edit')->name('edit');
     Route::put('/update/{id}', 'update')->name('update');
+});
+
+Route::controller(ImageController::class)->group(function () {
+    Route::get('/gallery', 'index')->name('image.index');
+    Route::post('/image', 'store')->name('image.store');
 });
 
 Route::get('/dashboard', function () {

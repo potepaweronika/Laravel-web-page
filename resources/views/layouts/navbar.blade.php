@@ -4,7 +4,6 @@
         <div class="text-sm text-gray-700 dark:text-gray-500 underline">
             <a href="{{ url('/') }}"> Home </a></br>
             <a href="{{ url('/dashboard') }}"> Dashboard </a></br>
-            <a href="{{ route('comments') }}"> Comments </a>
         </div>
         <!-- Authentication Links -->
         @guest

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>TAI | Komentarze</title>
+    <title>Comments</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
@@ -38,16 +38,16 @@
             </div>
             <div class="table-container text-sm text-zinc-100 dark:text-gray-500">
                 <div class="title">
-                    <h3>Księga komentarzy</h3>
+                    <h3>Comments</h3>
                 </div>
                 @auth
                 <table class="text-sm text-zinc-50 dark:text-gray-500" data-toggle="table">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Użytkownik</th>
-                            <th>Data dodania</th>
-                            <th>Komentarz</th>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Comment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,29 +60,29 @@
                                 <br /> @if($comment->user_id == \Auth::user()->id)
                                          <a href="{{ route('edit', $comment) }}"
                                             class="btn btn-success btn-xs"
-                                            title="Edytuj"> Edytuj
+                                            title="Edytuj"> Edit
                                          </a>
 
                                          <a href="{{ route('delete', $comment->id) }}"
                                             class="btn btn-danger btn-xs"
                                             onclick="return confirm('Jesteś pewien?')"
-                                            title="Skasuj"> Usuń
+                                            title="Skasuj"> Delete
                                          </a>
                                         @endif
                             </td>
                         </tr>
-                        @endforeach                   
+                        @endforeach
                     </tbody>
                 </table>
                 <div class="footer-button">
-                    <a href="{{ route('create') }}" class="btn btn-secondary">Dodaj</a>
+                    <a href="{{ route('create') }}" class="btn btn-secondary">Add</a>
                 </div>
                 <br>       
                 @endauth
                 @guest
                 <br>
                 <div class="table-container text-sm text-zinc-50 dark:text-gray-500">
-                    <h6>Zaloguj się aby przejrzeć komentarze.</h6>
+                    <h6>Log in to see the comments.</h6>
                 </div>
                 @endguest 
             </div>     

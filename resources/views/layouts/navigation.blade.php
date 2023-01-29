@@ -15,11 +15,17 @@
                     <x-nav-link :href="url('/')" :active="request()->routeIs('/')">
                         {{ __('Home') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('image.index')" :active="request()->routeIs('image.index')">
+                        {{ __('Gallery') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('comments')" :active="request()->routeIs('comments')">
                         {{ __('Comments') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('mainGallery')" :active="request()->routeIs('mainGallery')">
+                        {{ __('Second Gallery') }}
                     </x-nav-link>
                 </div>
             </div>
